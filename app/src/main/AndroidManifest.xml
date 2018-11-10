@@ -12,13 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/LightTheme">
 
         <activity
             android:name="com.demodocebo.test.ui.view.splash.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/FullScreenDarkTheme">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

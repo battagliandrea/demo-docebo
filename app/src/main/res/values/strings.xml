@@ -1,6 +1,6 @@
 <resources>
     <!--SPLASH-->
-    <string name="splash_title">SWAPI Sample</string>
+    <string name="splash_title">Andrea Battaglia</string>
 
     <!--HOME-->
     <string name="home_title">Home</string>
