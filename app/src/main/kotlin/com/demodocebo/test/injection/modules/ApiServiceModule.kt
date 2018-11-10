@@ -3,7 +3,7 @@ package com.demodocebo.test.injection.modules
 import android.content.Context
 import com.demodocebo.test.BuildConfig
 import com.demodocebo.test.R
-import com.demodocebo.test.data.api.SwapiApi
+import com.demodocebo.test.data.api.DoceboDemoApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -21,7 +21,7 @@ class ApiServiceModule {
 
     @Provides
     @Singleton
-    internal fun provideApi(context: Context, httpClient: OkHttpClient, rxAdapter: RxJava2CallAdapterFactory, gsonConverterFactory: GsonConverterFactory): SwapiApi {
+    internal fun provideApi(context: Context, httpClient: OkHttpClient, rxAdapter: RxJava2CallAdapterFactory, gsonConverterFactory: GsonConverterFactory): DoceboDemoApi {
 
         val logging = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) {
@@ -37,6 +37,6 @@ class ApiServiceModule {
                 .addConverterFactory(gsonConverterFactory)
                 .build()
 
-        return retrofit.create(SwapiApi::class.java)
+        return retrofit.create(DoceboDemoApi::class.java)
     }
 }

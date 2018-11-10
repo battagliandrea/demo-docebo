@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="100dp"
     android:layout_width="match_parent"
-    android:padding="@dimen/dimen_default_minimum"
+    android:padding="@dimen/dimen_default_quarter"
     android:clickable="true"
     android:focusable="true">
 

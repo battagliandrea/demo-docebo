@@ -7,12 +7,12 @@ import javax.inject.Inject
 /**
  * Created by andrea on 28/08/2017.
  */
-class SwapiApiDatasource @Inject constructor(api: SwapiApi) {
+class DoceboDemoApiDatasource @Inject constructor(demoApi: DoceboDemoApi) {
 
-    private var mSwapiApi: SwapiApi = api
+    private var mDoceboDemoApi: DoceboDemoApi = demoApi
 
     fun root(): Observable<RemoteModel> {
-        return mSwapiApi.root()
+        return mDoceboDemoApi.root()
                 .onErrorCheckRetrofitException()
     }
 }

@@ -2,6 +2,7 @@ package com.demodocebo.test.injection.modules
 
 import android.arch.lifecycle.ViewModel
 import com.demodocebo.test.ui.viewmodel.HomeViewModel
+import com.demodocebo.test.ui.viewmodel.SearchViewModel
 import com.demodocebo.test.ui.viewmodel.SplashViewModel
 import dagger.Module
 import dagger.Provides
@@ -17,8 +18,13 @@ class ViewModelModule {
 
     @Provides
     @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    fun provideSearchViewModel(viewModel: SearchViewModel): ViewModel = viewModel
+
+    @Provides
+    @IntoMap
     @ViewModelKey(HomeViewModel::class)
-    fun provideShowListViewModel(viewModel: HomeViewModel): ViewModel = viewModel
+    fun provideHomeViewModel(viewModel: HomeViewModel): ViewModel = viewModel
 
 
 }

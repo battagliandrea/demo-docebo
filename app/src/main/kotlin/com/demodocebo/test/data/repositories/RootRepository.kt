@@ -1,21 +1,21 @@
 package com.demodocebo.test.data.repositories
 
-import com.demodocebo.test.data.api.SwapiApiDatasource
+import com.demodocebo.test.data.api.DoceboDemoApiDatasource
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RootRepository @Inject constructor(swapiApi: SwapiApiDatasource){
+class RootRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasource){
 
-    private var mSwapiApi : SwapiApiDatasource = swapiApi
+    private var mDoceboDemoApi : DoceboDemoApiDatasource = doceboDemoApi
 
 //    fun rootList(): Observable<List<String?>> {
-//        return mSwapiApi.root()
+//        return mDoceboDemoApi.root()
 //                .map{ res -> res.getList() }
 //    }
 
 //    fun fetchRootList(): Observable<List<String?>> {
-//        return mSwapiApi.root()
+//        return mDoceboDemoApi.root()
 //                .map{ res -> res.getList() }
 //    }
 }

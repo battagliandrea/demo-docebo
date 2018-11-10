@@ -42,7 +42,7 @@ class SplashActivity(override val layoutResourceId: Int = R.layout.activity_spla
 
     private fun onStateChanged(state: SplashViewModel.State) = when (state) {
         SplashViewModel.State.ShowHome -> {
-            routeManager.launchShowList(this)
+            routeManager.launchSearch(this)
             finish()
         }
         SplashViewModel.State.ShowError -> {

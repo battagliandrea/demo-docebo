@@ -8,7 +8,7 @@ import retrofit2.http.GET
  * Created by andrea on 23/04/17.
  */
 
-interface SwapiApi {
+interface DoceboDemoApi {
 
     @GET("api")
     fun root(): Observable<RemoteModel>

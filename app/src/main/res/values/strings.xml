@@ -2,6 +2,12 @@
     <!--SPLASH-->
     <string name="splash_title">Andrea Battaglia</string>
 
+    <!--SEARCH-->
+    <string name="search_title">Andrea Battaglia</string>
+    <string name="search_name_item">Item name</string>
+    <string name="search_course_item">Course name</string>
+    <string name="search_button">Search</string>
+
     <!--HOME-->
     <string name="home_title">Home</string>
 
