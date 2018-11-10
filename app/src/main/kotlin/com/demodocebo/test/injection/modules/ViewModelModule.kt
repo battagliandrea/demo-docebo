@@ -1,7 +1,7 @@
 package com.demodocebo.test.injection.modules
 
 import android.arch.lifecycle.ViewModel
-import com.demodocebo.test.ui.viewmodel.HomeViewModel
+import com.demodocebo.test.ui.viewmodel.CatalogViewModel
 import com.demodocebo.test.ui.viewmodel.SearchViewModel
 import com.demodocebo.test.ui.viewmodel.SplashViewModel
 import dagger.Module
@@ -23,8 +23,8 @@ class ViewModelModule {
 
     @Provides
     @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    fun provideHomeViewModel(viewModel: HomeViewModel): ViewModel = viewModel
+    @ViewModelKey(CatalogViewModel::class)
+    fun provideCatalogViewModel(viewModel: CatalogViewModel): ViewModel = viewModel
 
 
 }

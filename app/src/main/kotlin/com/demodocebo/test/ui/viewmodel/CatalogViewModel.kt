@@ -6,11 +6,11 @@ import android.arch.lifecycle.ViewModel
 import com.demodocebo.test.domain.usecases.FetchRootUseCase
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
+class CatalogViewModel @Inject constructor(
         private val fetchRootUseCase: FetchRootUseCase
 ) : ViewModel() {
 
-    open val state = MediatorLiveData<HomeViewModel.State>()
+    open val state = MediatorLiveData<CatalogViewModel.State>()
 
     init {
         state.addSource(fetchRootUseCase.getLiveData(), ::onFetchRootResult)

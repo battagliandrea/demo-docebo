@@ -8,14 +8,14 @@ import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.R
 import com.demodocebo.test.ui.utils.getViewModel
-import com.demodocebo.test.ui.view.home.HomeActivity
+import com.demodocebo.test.ui.view.catalog.CatalogActivity
 import com.demodocebo.test.ui.viewmodel.SplashViewModel
 
 class SplashActivity(override val layoutResourceId: Int = R.layout.activity_splash ) : BaseActivity(){
 
 
     companion object {
-        fun getCallingIntent(context: Context) = Intent(context, HomeActivity::class.java)
+        fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

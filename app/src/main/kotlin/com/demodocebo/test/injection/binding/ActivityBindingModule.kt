@@ -1,7 +1,7 @@
 package com.demodocebo.test.injection.binding
 
 import com.demodocebo.test.injection.scopes.ActivityScope
-import com.demodocebo.test.ui.view.home.HomeActivity
+import com.demodocebo.test.ui.view.catalog.CatalogActivity
 import com.demodocebo.test.ui.view.search.SearchActivity
 import com.demodocebo.test.ui.view.splash.SplashActivity
 import dagger.Module
@@ -20,5 +20,5 @@ abstract class ActivityBindingModule {
 
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun homeActivity(): HomeActivity
+    abstract fun catalogActivity(): CatalogActivity
 }
