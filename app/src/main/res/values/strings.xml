@@ -1,0 +1,21 @@
+<resources>
+    <!--SPLASH-->
+    <string name="splash_title">SWAPI Sample</string>
+
+    <!--HOME-->
+    <string name="home_title">Home</string>
+
+    <!-- ERRORS-->
+    <string name="error_undefined">Ops, something went wrong.</string>
+    <string name="error_network_no_network">Seems that you are offline. Please check your connection and try again</string>
+    <string name="error_network_server_timeout">Server is unreachable. Please try again later</string>
+    <string name="error_network_undefined">Server have some problem. Please try again later</string>
+    <string name="error_api_400">Your request cannot be fulfilled</string>
+    <string name="error_api_401">Your credentials seem to be invalid. Please try again</string>
+    <string name="error_api_403">You\'re not allowed to access this content</string>
+    <string name="error_api_404">Your request cannot be fulfilled</string>
+    <string name="error_api_406">Your request is not valid, please check your input and try again</string>
+    <string name="error_api_500">Some error occured. Problem has been reported to developers</string>
+    <string name="error_api_undefined">Server returned an error. Problem has been reported to developers</string>
+
+</resources>

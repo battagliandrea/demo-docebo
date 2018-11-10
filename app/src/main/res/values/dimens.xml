@@ -1,0 +1,17 @@
+<resources>
+
+
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="dimen_default">16dp</dimen>
+    <dimen name="dimen_default_small">8dp</dimen>
+    <dimen name="dimen_default_minimum">4dp</dimen>
+    <dimen name="dimen_default_double">32dp</dimen>
+    <dimen name="dimen_default_quadruple">64dp</dimen>
+
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="text_size_big">20sp</dimen>
+    <dimen name="text_size_max">30sp</dimen>
+
+</resources>
