@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="courses">
+        <item>all</item>
+        <item>classroom</item>
+        <item>elearning</item>
+        <item>mobile</item>
+        <item>webinar</item>
+        <item>learning_plan</item>
+    </array>
+</resources>

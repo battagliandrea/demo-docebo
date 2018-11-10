@@ -1,6 +1,6 @@
 package com.demodocebo.test.data.api
 
-import com.demodocebo.test.data.api.models.RemoteModel
+import com.demodocebo.test.data.api.models.RemoteCatalog
 import io.reactivex.Observable
 import retrofit2.http.GET
 
@@ -11,7 +11,7 @@ import retrofit2.http.GET
 interface DoceboDemoApi {
 
     @GET("api")
-    fun root(): Observable<RemoteModel>
+    fun root(): Observable<RemoteCatalog>
 }
 
 

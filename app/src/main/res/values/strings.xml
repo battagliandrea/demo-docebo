@@ -7,6 +7,7 @@
     <string name="search_name_item">Item name</string>
     <string name="search_course_item">Course name</string>
     <string name="search_button">Search</string>
+    <string name="search_select_title">Select a course:</string>
 
     <!--HOME-->
     <string name="home_title">Home</string>

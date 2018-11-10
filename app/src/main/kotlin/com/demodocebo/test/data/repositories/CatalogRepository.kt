@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RootRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasource){
+class CatalogRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasource){
 
     private var mDoceboDemoApi : DoceboDemoApiDatasource = doceboDemoApi
 

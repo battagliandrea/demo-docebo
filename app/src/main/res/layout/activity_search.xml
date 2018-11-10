@@ -34,9 +34,9 @@
             android:layout_height="@dimen/edit_text_height"
             android:layout_marginTop="@dimen/dimen_default_quarter"
             android:layout_marginBottom="@dimen/dimen_default_quarter"
-
             android:paddingStart="@dimen/dimen_default_half"
             android:paddingEnd="@dimen/dimen_default_half"
+            android:focusable="false"
             android:hint="@string/search_course_item"
             android:background="@drawable/bkg_rect_round_gray_light"/>
 

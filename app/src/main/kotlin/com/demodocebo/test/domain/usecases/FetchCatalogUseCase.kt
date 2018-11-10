@@ -4,9 +4,9 @@ import com.demodocebo.test.data.repositories.CatalogRepository
 import com.demodocebo.test.domain.base.BaseUseCase
 import javax.inject.Inject
 
-class FetchRootUseCase @Inject constructor(
+class FetchCatalogUseCase @Inject constructor(
         private val repository: CatalogRepository
-) : BaseUseCase<FetchRootUseCase.Result>() {
+) : BaseUseCase<FetchCatalogUseCase.Result>() {
 
     sealed class Result {
         data class OnSuccess(val memes: List<String?>) : Result()
