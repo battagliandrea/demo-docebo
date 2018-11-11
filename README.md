@@ -1,12 +1,24 @@
-# Kotlin MVP
-Android kotlin mvp sample. Used to clone and start with a new project
+# Catalog Sample
+Sample app in which you can insert some params and see a mock catalog
 
-## Dependencies
-In this project I have used many of most popular Android's dependencies:
-1. Retrofit
-2. RxJava2
-3. Dagger2
+# Import project
 
-## Mvp 
-I implemented the mvp pattern through dagger2. Into AppComponent.class there are all modules which the app needed to work. Instead into PresenterComponent we find all modules injection. 
-Every module with @PresenterScope annotation provide the presenter instance and in the constructor we can pass the appropriate Repository
+- open your **Terminal** app
+- run command: `git clone <git-repository-url>`
+- open **Android Studio** app
+- select **Import Project from Gradle**
+
+# Pattern
+- Model - View - ViewModel
+
+# Project specifications
+- Kotlin version 1.2
+- RxJava2
+- Dagger2
+- Retrofit2
+
+# Support
+You can write me to [battaglia.andry@gmail.com](battaglia.andry@gmail.com)
+
+# License
+[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)
