@@ -5,6 +5,7 @@ import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
 import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.domain.usecases.GetCatalogItemsUseCase
+import com.demodocebo.test.ui.view.catalog.SortType
 import javax.inject.Inject
 
 class CatalogViewModel @Inject constructor(
@@ -49,12 +50,12 @@ class CatalogViewModel @Inject constructor(
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //         USE CASE METHODS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    fun fetchCatalog(loadMore: Boolean) {
+    fun fetchCatalog(loadMore: Boolean, sortType: SortType) {
         if(loadMore){
             state.value = State.ShowLoadingMore
         } else {
             state.value = State.ShowLoading
         }
-        getCatalogItemsUseCase.execute(GetCatalogItemsUseCase.Params())
+        getCatalogItemsUseCase.execute(GetCatalogItemsUseCase.Params(sortType = sortType))
     }
 }

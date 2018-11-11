@@ -2,7 +2,7 @@ package com.demodocebo.test.data.api.models
 
 import com.google.gson.annotations.SerializedName
 
-class Item (
+class Item  (
     var is_affiliate: Boolean,
     var is_user_subscribed: Int,
     var price_status: Int,
@@ -28,4 +28,8 @@ class Item (
     var item_code: String,
     var item_type: String,
     var item_id: String
-)
+) : Comparable<Item> {
+
+
+    override fun compareTo(other: Item): Int = this.item_name.compareTo(other.item_name);
+}

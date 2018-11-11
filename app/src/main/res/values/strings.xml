@@ -19,6 +19,13 @@
 
     <!--FILTERS-->
     <string name="menu_catalog_filters">Filters</string>
+    <string name="bottom_menu_sort">Sort by</string>
+    <string name="bottom_menu_sort_asc">A to Z</string>
+    <string name="bottom_menu_sort_dsc">Z to A</string>
+    <string name="bottom_menu_filter">Filters</string>
+    <string name="bottom_menu_filter_type">Type</string>
+    <string name="bottom_menu_filter_price">Price</string>
+    <string name="bottom_menu_clear">Clear all</string>
 
     <!-- ERRORS-->
     <string name="error_undefined">Ops, something went wrong.</string>

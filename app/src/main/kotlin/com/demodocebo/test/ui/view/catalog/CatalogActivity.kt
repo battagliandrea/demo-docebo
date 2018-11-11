@@ -51,12 +51,11 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         setupNavigationToolbar(toolbar, getString(R.string.catalog_title))
 
         setupRecyclerView()
-
-        sheetBehavior = BottomSheetBehavior.from(bottom_sheet);
+        setupBottomSheet()
 
         mCatalogViewModel = getViewModel<CatalogViewModel>(viewModelFactory)
         setUpViewModelStateObservers()
-        mCatalogViewModel.fetchCatalog(loadMore = false)
+        mCatalogViewModel.fetchCatalog(loadMore = false, sortType = SortType.NONE)
     }
 
     private fun setUpViewModelStateObservers() {
@@ -98,7 +97,7 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
                     if (visibleItemCount + firstVisibleItemPosition >= totalItemCount
                             && firstVisibleItemPosition >= 0
                             && totalItemCount >= PAGE_SIZE) {
-                        mCatalogViewModel.fetchCatalog(loadMore = true)
+                        mCatalogViewModel.fetchCatalog(loadMore = true, sortType = SortType.NONE)
                     }
                 }
             }
@@ -115,7 +114,45 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         tv_count.text = "${count} ${resources.getQuantityString(R.plurals.catalog_count, count)}"
     }
 
+    private fun setupBottomSheet(){
+        sheetBehavior = BottomSheetBehavior.from(bottom_sheet);
 
+        cb_az.setOnClickListener {
+            if(cb_az.isChecked){
+                cb_za.isChecked = false
+                mCatalogAdapter.data.clear()
+                mCatalogViewModel.fetchCatalog(loadMore = false, sortType = SortType.ASC)
+            } else {
+                cb_az.isChecked = false
+                if(!cb_za.isChecked){
+                    mCatalogAdapter.data.clear()
+                    mCatalogViewModel.fetchCatalog(loadMore = false, sortType = SortType.NONE)
+                }
+            }
+        }
+        cb_za.setOnClickListener {
+            if(cb_za.isChecked){
+                cb_az.isChecked = false
+                mCatalogAdapter.data.clear()
+                mCatalogViewModel.fetchCatalog(loadMore = false, sortType = SortType.DESC)
+            } else {
+                cb_za.isChecked = false
+                if(!cb_az.isChecked){
+                    mCatalogAdapter.data.clear()
+                    mCatalogViewModel.fetchCatalog(loadMore = false, sortType = SortType.NONE)
+                }
+            }
+        }
+    }
+
+    private fun openCloseBottomSheet(){
+        if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
+
+        } else {
+            sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+        }
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          OPTION MENU
@@ -129,11 +166,7 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         val id = item?.itemId
         when (id) {
             R.id.filters -> {
-                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                    sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
-                } else {
-                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
-                }
+                openCloseBottomSheet()
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
