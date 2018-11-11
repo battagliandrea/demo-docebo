@@ -2,28 +2,26 @@ package com.demodocebo.test.ui.view.catalog
 
 import android.content.Context
 import android.content.Intent
+import android.nfc.tech.MifareUltralight.PAGE_SIZE
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.demodocebo.test.ui.utils.observe
-import com.demodocebo.test.ui.view.base.BaseActivity
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import com.demodocebo.test.R
 import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.ui.utils.getViewModel
+import com.demodocebo.test.ui.utils.manageTheme
+import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.utils.setupNavigationToolbar
+import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.ui.viewmodel.CatalogViewModel
 import kotlinx.android.synthetic.main.activity_catalog.*
+import kotlinx.android.synthetic.main.view_catalog_bottom_sheet.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import javax.inject.Inject
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
-import android.preference.PreferenceManager
-import android.support.v7.widget.LinearLayoutManager
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
-import android.support.design.widget.BottomSheetBehavior
-import android.view.View
-import com.demodocebo.test.ui.utils.manageTheme
-import kotlinx.android.synthetic.main.view_catalog_bottom_sheet.*
 
 
 class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_catalog) : BaseActivity(){

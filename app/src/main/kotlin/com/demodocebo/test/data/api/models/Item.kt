@@ -1,7 +1,5 @@
 package com.demodocebo.test.data.api.models
 
-import com.google.gson.annotations.SerializedName
-
 class Item  (
     var is_affiliate: Boolean,
     var is_user_subscribed: Int,

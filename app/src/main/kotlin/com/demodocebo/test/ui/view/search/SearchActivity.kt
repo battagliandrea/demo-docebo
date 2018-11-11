@@ -4,19 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
-import com.demodocebo.test.ui.view.base.BaseActivity
-import com.demodocebo.test.R
-import kotlinx.android.synthetic.main.activity_search.*
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.demodocebo.test.R
 import com.demodocebo.test.ui.utils.getViewModel
 import com.demodocebo.test.ui.utils.manageTheme
 import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.utils.setupDefaultToolbar
+import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.ui.viewmodel.SearchViewModel
+import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
 class SearchActivity(override val layoutResourceId: Int = R.layout.activity_search) : BaseActivity(){

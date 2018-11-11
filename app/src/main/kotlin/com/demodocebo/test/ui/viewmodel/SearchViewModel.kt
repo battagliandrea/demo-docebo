@@ -3,7 +3,6 @@ package com.demodocebo.test.ui.viewmodel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
-import com.demodocebo.test.domain.usecases.GetCatalogItemsUseCase
 import com.demodocebo.test.domain.usecases.SaveSearchParamsUseCase
 import javax.inject.Inject
 

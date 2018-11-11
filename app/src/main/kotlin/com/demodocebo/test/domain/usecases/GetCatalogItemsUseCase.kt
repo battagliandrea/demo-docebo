@@ -1,6 +1,5 @@
 package com.demodocebo.test.domain.usecases
 
-import com.demodocebo.test.data.api.models.Catalog
 import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.data.repositories.CatalogRepository
 import com.demodocebo.test.domain.base.BaseUseCase
