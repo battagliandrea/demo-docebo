@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="@dimen/dimen_default_quarter"
+        android:layout_marginBottom="@dimen/dimen_default_quarter"
+        android:paddingStart="@dimen/dimen_default_half"
+        android:paddingEnd="@dimen/dimen_default_half"
+        android:focusable="false"
+        android:hint="@string/search_course_item"
+        android:background="@drawable/bkg_rect_round_gray_light"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="@dimen/dimen_default_quarter"
+        android:layout_marginBottom="@dimen/dimen_default_quarter"
+        android:paddingStart="@dimen/dimen_default_half"
+        android:paddingEnd="@dimen/dimen_default_half"
+        android:focusable="false"
+        android:hint="@string/search_course_item"
+        android:background="@drawable/bkg_rect_round_gray_light"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="@dimen/dimen_default_quarter"
+        android:layout_marginBottom="@dimen/dimen_default_quarter"
+        android:paddingStart="@dimen/dimen_default_half"
+        android:paddingEnd="@dimen/dimen_default_half"
+        android:focusable="false"
+        android:hint="@string/search_course_item"
+        android:background="@drawable/bkg_rect_round_gray_light"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_marginTop="@dimen/dimen_default_quarter"
+        android:layout_marginBottom="@dimen/dimen_default_quarter"
+        android:paddingStart="@dimen/dimen_default_half"
+        android:paddingEnd="@dimen/dimen_default_half"
+        android:focusable="false"
+        android:hint="@string/search_course_item"
+        android:background="@drawable/bkg_rect_round_gray_light"/>
+</LinearLayout>

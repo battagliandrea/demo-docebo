@@ -19,17 +19,29 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-
-
+import android.support.design.widget.BottomSheetBehavior
+import android.view.View
+import kotlinx.android.synthetic.main.view_catalog_bottom_sheet.*
 
 
 class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_catalog) : BaseActivity(){
+
+    companion object {
+        private const val LIST : Int = 0
+        private const val LOADER : Int = 1
+        private const val EMPTY_STATE : Int = 2
+        private const val ERROR : Int = 3
+
+        fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
+    }
 
     @Inject
     lateinit var mCatalogAdapter: CatalogAdapter
     lateinit var mLinearLayoutManager: LinearLayoutManager
 
     lateinit var mCatalogViewModel: CatalogViewModel
+
+    lateinit var sheetBehavior: BottomSheetBehavior<View>
 
     private  var isLoading: Boolean = false
 
@@ -39,6 +51,8 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         setupNavigationToolbar(toolbar, getString(R.string.catalog_title))
 
         setupRecyclerView()
+
+        sheetBehavior = BottomSheetBehavior.from(bottom_sheet);
 
         mCatalogViewModel = getViewModel<CatalogViewModel>(viewModelFactory)
         setUpViewModelStateObservers()
@@ -101,15 +115,11 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         tv_count.text = "${count} ${resources.getQuantityString(R.plurals.catalog_count, count)}"
     }
 
-    companion object {
-        private const val LIST : Int = 0
-        private const val LOADER : Int = 1
-        private const val EMPTY_STATE : Int = 2
-        private const val ERROR : Int = 3
 
-        fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
-    }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          OPTION MENU
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.catalog_menu, menu)
         return true
@@ -119,7 +129,11 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         val id = item?.itemId
         when (id) {
             R.id.filters -> {
-                Toast.makeText(applicationContext, "FILTERS", Toast.LENGTH_LONG).show()
+                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED)
+                } else {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)
+                }
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
