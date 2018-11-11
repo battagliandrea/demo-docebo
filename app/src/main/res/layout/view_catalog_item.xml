@@ -12,14 +12,14 @@
         android:layout_width="100dp"
         android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/title"
+        app:layout_constraintEnd_toStartOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:scaleType="centerCrop"
         tools:src="@tools:sample/avatars" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/title"
+        android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_default"
@@ -27,27 +27,43 @@
         android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/description"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_type_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@tools:sample/lorem/random" />
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/description"
+        android:id="@+id/tv_type_price"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_default"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_description"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image"
+        tools:text="type"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_default"
         android:layout_marginTop="@dimen/dimen_default_half"
         android:layout_marginBottom="@dimen/dimen_default"
         android:ellipsize="end"
-        android:maxLines="5"
+        android:maxLines="4"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/tv_type_price"
         tools:text="@tools:sample/lorem/random" />
 
 </android.support.constraint.ConstraintLayout>

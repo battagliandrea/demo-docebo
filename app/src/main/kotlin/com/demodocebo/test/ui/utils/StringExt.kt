@@ -7,11 +7,10 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.security.NoSuchAlgorithmException
+import java.text.NumberFormat
+import java.util.*
 
 
-/**
- * Returns an html-stripped String
- */
 fun String.toSpanned() : String {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY).toString()
@@ -20,11 +19,11 @@ fun String.toSpanned() : String {
     }
 }
 
+fun String.toCurrency() : String {
+    val format = NumberFormat.getCurrencyInstance(Locale.ITALY)
+    return format.format(this.toDouble())
+}
 
-/**
- * @param inputStream
- * @return the inputStream in input converted in a String object
- */
 fun InputStream.getString(): String {
 
     var br: BufferedReader? = null
@@ -53,10 +52,6 @@ fun InputStream.getString(): String {
     return sb.toString()
 }
 
-
-/**
- * Calculate MD% from a string.
- */
 fun String.calculateMd5(): String {
     try {
         // Create MD5 Hash
