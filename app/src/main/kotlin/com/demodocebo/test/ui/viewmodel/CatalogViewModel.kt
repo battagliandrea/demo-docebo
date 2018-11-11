@@ -26,11 +26,11 @@ class CatalogViewModel @Inject constructor(
     private fun onFetchRootResult(result: GetCatalogItemsUseCase.Result?) {
         when (result) {
             is GetCatalogItemsUseCase.Result.OnSuccess -> {
-                if(result.catalog.data.count >0){
-                    state.value = State.ListLoaded(result.catalog.data.items)
-                    state.value = State.CountLoaded(result.catalog.data.count)
+                if(result.pair.first >0){
+                    state.value = State.CountLoaded(result.pair.first)
+                    state.value = State.ListLoaded(result.pair.second)
                 } else {
-                    state.value = State.ShowEmptyStare
+                    state.value = State.ShowEmptyState
                 }
             }
             is GetCatalogItemsUseCase.Result.OnError -> state.value = State.ShowError
@@ -41,15 +41,20 @@ class CatalogViewModel @Inject constructor(
         data class ListLoaded(val items: List<Item>) : State()
         data class CountLoaded(val count: Int) : State()
         object ShowLoading : State()
-        object ShowEmptyStare : State()
+        object ShowLoadingMore : State()
+        object ShowEmptyState : State()
         object ShowError : State()
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //         USE CASE METHODS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    fun fetchRoot() {
-        state.value = State.ShowLoading
+    fun fetchCatalog(loadMore: Boolean) {
+        if(loadMore){
+            state.value = State.ShowLoadingMore
+        } else {
+            state.value = State.ShowLoading
+        }
         getCatalogItemsUseCase.execute(GetCatalogItemsUseCase.Params())
     }
 }

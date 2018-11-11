@@ -26,12 +26,12 @@ class GetCatalogItemsUseCase @Inject constructor(
     //          OUTPUT
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     sealed class Result {
-        data class OnSuccess(val catalog: Catalog) : Result()
+        data class OnSuccess(val pair: Pair<Int, List<Item>>) : Result()
         object OnError : Result()
     }
 
-    private fun success(catalog: Catalog) {
-        liveData.value = Result.OnSuccess(catalog)
+    private fun success(pair: Pair<Int, List<Item>>) {
+        liveData.value = Result.OnSuccess(pair)
     }
 
     private fun error(throwable: Throwable) {

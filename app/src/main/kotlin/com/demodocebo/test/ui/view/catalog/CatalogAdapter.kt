@@ -18,9 +18,9 @@ import javax.inject.Inject
 
 open class CatalogAdapter @Inject constructor() : RecyclerView.Adapter<CatalogAdapter.ViewHolder>() {
 
-    var data: List<Item> = mutableListOf()
+    var data: MutableList<Item> = mutableListOf()
         set(value) {
-            field = value
+            field.addAll(value)
             notifyDataSetChanged()
         }
 
