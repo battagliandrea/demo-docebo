@@ -1,5 +1,6 @@
 package com.demodocebo.test.ui.utils
 
+import android.os.Build
 import android.text.Html
 import java.io.BufferedReader
 import java.io.IOException
@@ -11,7 +12,13 @@ import java.security.NoSuchAlgorithmException
 /**
  * Returns an html-stripped String
  */
-fun String.toSpanned() = Html.fromHtml(this)
+fun String.toSpanned() : String {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        return Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY).toString()
+    } else {
+        return Html.fromHtml(this).toString()
+    }
+}
 
 
 /**

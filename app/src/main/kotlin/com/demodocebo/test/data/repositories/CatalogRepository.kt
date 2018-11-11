@@ -15,7 +15,7 @@ class CatalogRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasour
 
     private var type: BehaviorSubject<String> = BehaviorSubject.create()
     private var name: BehaviorSubject<String> = BehaviorSubject.create()
-    private var page: BehaviorSubject<Int> = BehaviorSubject.create()
+    private var page: BehaviorSubject<Int> = BehaviorSubject.createDefault(0)
 
 
     fun saveSearchParames(name: String, type: String): Observable<Boolean> {
@@ -26,9 +26,8 @@ class CatalogRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasour
         }
     }
 
-
     fun fetchCatalogItems(): Observable<List<Item>> {
-        return mDoceboDemoApi.catalog("", "all", 0)
+        return mDoceboDemoApi.catalog(name.value ?: "", type.value ?: "all", page.value ?: 0)
                 .map{ res -> res.data.items }
     }
 }

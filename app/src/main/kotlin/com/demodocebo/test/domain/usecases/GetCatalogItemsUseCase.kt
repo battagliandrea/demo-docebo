@@ -25,7 +25,7 @@ class GetCatalogItemsUseCase @Inject constructor(
     //          OUTPUT
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     sealed class Result {
-        data class OnSuccess(val memes: List<Item>) : Result()
+        data class OnSuccess(val items: List<Item>) : Result()
         object OnError : Result()
     }
 
