@@ -3,14 +3,14 @@
     <string name="splash_title">Andrea Battaglia</string>
 
     <!--SEARCH-->
-    <string name="search_title">Andrea Battaglia</string>
+    <string name="search_title">Search</string>
     <string name="search_name_item">Item name</string>
     <string name="search_course_item">Course name</string>
     <string name="search_button">Search</string>
     <string name="search_select_title">Select a course:</string>
 
-    <!--HOME-->
-    <string name="home_title">Home</string>
+    <!--CATALOG-->
+    <string name="catalog_title">Catalogo</string>
 
     <!-- ERRORS-->
     <string name="error_undefined">Ops, something went wrong.</string>

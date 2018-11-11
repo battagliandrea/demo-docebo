@@ -11,7 +11,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.demodocebo.test.ui.utils.getViewModel
 import com.demodocebo.test.ui.utils.observe
+import com.demodocebo.test.ui.utils.setupDefaultToolbar
 import com.demodocebo.test.ui.viewmodel.SearchViewModel
+import kotlinx.android.synthetic.main.view_toolbar.*
 
 class SearchActivity(override val layoutResourceId: Int = R.layout.activity_search) : BaseActivity(){
 
@@ -23,6 +25,8 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupDefaultToolbar(toolbar, getString(R.string.search_title))
 
         initView()
         setUpViewModelStateObservers()

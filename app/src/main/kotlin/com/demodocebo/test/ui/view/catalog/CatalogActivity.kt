@@ -8,8 +8,11 @@ import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.R
 import com.demodocebo.test.ui.utils.getViewModel
+import com.demodocebo.test.ui.utils.setupDefaultToolbar
+import com.demodocebo.test.ui.utils.setupNavigationToolbar
 import com.demodocebo.test.ui.viewmodel.CatalogViewModel
 import kotlinx.android.synthetic.main.activity_catalog.*
+import kotlinx.android.synthetic.main.view_toolbar.*
 import javax.inject.Inject
 
 class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_catalog) : BaseActivity(){
@@ -21,6 +24,8 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupNavigationToolbar(toolbar, getString(R.string.catalog_title))
 
         rv.adapter = mCatalogAdapter
 
