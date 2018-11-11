@@ -1,6 +1,6 @@
 package com.demodocebo.test.data.api
 
-import com.demodocebo.test.data.api.models.RemoteCatalog
+import com.demodocebo.test.data.api.models.Catalog
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -11,8 +11,8 @@ class DoceboDemoApiDatasource @Inject constructor(demoApi: DoceboDemoApi) {
 
     private var mDoceboDemoApi: DoceboDemoApi = demoApi
 
-    fun root(): Observable<RemoteCatalog> {
-        return mDoceboDemoApi.root()
+    fun catalog(name: String, type: String, page: Int): Observable<Catalog> {
+        return mDoceboDemoApi.catalog(name, type, page)
                 .onErrorCheckRetrofitException()
     }
 }

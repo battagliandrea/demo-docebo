@@ -3,40 +3,40 @@ package com.demodocebo.test.ui.viewmodel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
-import com.demodocebo.test.domain.usecases.CheckStartUseCase
+import com.demodocebo.test.domain.usecases.GetCatalogItemsUseCase
 import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(
-        private val checkStartUseCase: CheckStartUseCase
+        private val getCatalogItemsUseCase: GetCatalogItemsUseCase
 ) : ViewModel() {
 
     open var state = MediatorLiveData<State>()
 
     init {
-        state.addSource(checkStartUseCase.getLiveData(), ::onCheckStartResult)
+        state.addSource(getCatalogItemsUseCase.getLiveData(), ::onFetchCatalogItemsResult)
     }
 
     override fun onCleared() {
-        checkStartUseCase.cleanUp()
+        getCatalogItemsUseCase.cleanUp()
     }
 
     fun getState(): LiveData<State> = state
 
-    fun checkStart() {
-        checkStartUseCase.execute()
+    fun fetchCatalogItems() {
+        getCatalogItemsUseCase.execute()
     }
 
-    private fun onCheckStartResult(result: CheckStartUseCase.Result?) {
+    private fun onFetchCatalogItemsResult(result: GetCatalogItemsUseCase.Result?) {
         when (result) {
-            is CheckStartUseCase.Result.OnSuccess -> {
-                state.value = State.ShowHome
+            is GetCatalogItemsUseCase.Result.OnSuccess -> {
+                state.value = State.Success
             }
-            is CheckStartUseCase.Result.OnError -> state.value = State.ShowHome
+            is GetCatalogItemsUseCase.Result.OnError -> state.value = State.Error
         }
     }
 
     sealed class State {
-        object ShowHome : State()
-        object ShowError : State()
+        object Success : State()
+        object Error : State()
     }
 }

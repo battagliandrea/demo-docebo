@@ -8,6 +8,10 @@ import com.demodocebo.test.R
 import kotlinx.android.synthetic.main.activity_search.*
 import android.support.v7.app.AlertDialog
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import com.demodocebo.test.ui.utils.getViewModel
+import com.demodocebo.test.ui.utils.observe
+import com.demodocebo.test.ui.viewmodel.SearchViewModel
 
 class SearchActivity(override val layoutResourceId: Int = R.layout.activity_search) : BaseActivity(){
 
@@ -19,7 +23,7 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
         super.onCreate(savedInstanceState)
 
         initView()
-        //setUpViewModelStateObservers()
+        setUpViewModelStateObservers()
         //getViewModel<SearchViewModel>(viewModelFactory).fetchRoot()
     }
 
@@ -27,16 +31,18 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
     //          VIEW MODEL METHOD
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//    private fun setUpViewModelStateObservers() {
-//        observe(getViewModel<CatalogViewModel>(viewModelFactory).getState()) { onStateChanged(it) }
-//    }
+    private fun setUpViewModelStateObservers() {
+        observe(getViewModel<SearchViewModel>(viewModelFactory).getState()) { onStateChanged(it) }
+    }
 
-//    private fun onStateChanged(state: CatalogViewModel.State) = when (state) {
-//        is CatalogViewModel.State.RootListLoaded -> Toast.makeText(this, "LOADED", Toast.LENGTH_SHORT).show()
-//        CatalogViewModel.State.ShowLoading -> Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
-//        CatalogViewModel.State.ShowContent -> Toast.makeText(this, "CONTENT", Toast.LENGTH_SHORT).show()
-//        CatalogViewModel.State.ShowError -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-//    }
+    private fun onStateChanged(state: SearchViewModel.State) = when (state) {
+        SearchViewModel.State.Success -> {
+            routeManager.launchCatalog(this)
+        }
+        SearchViewModel.State.Error -> {
+            Toast.makeText(this, getString(R.string.error_undefined), Toast.LENGTH_SHORT).show()
+        }
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //          UI METHODS
@@ -45,7 +51,7 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
         et_course.setText(resources.getStringArray(R.array.courses)[0])
         et_course.setOnClickListener { openCourseDialog() }
 
-        btn_search.setOnClickListener { routeManager.launchCatalog(this) }
+        btn_search.setOnClickListener { getViewModel<SearchViewModel>(viewModelFactory).fetchCatalogItems() }
     }
 
     private fun setCourseValue(value: String?){

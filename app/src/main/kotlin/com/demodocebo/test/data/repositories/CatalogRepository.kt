@@ -1,21 +1,23 @@
 package com.demodocebo.test.data.repositories
 
 import com.demodocebo.test.data.api.DoceboDemoApiDatasource
+import com.demodocebo.test.data.api.models.Item
+import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
+
 
 @Singleton
 class CatalogRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasource){
 
     private var mDoceboDemoApi : DoceboDemoApiDatasource = doceboDemoApi
 
-//    fun rootList(): Observable<List<String?>> {
-//        return mDoceboDemoApi.root()
-//                .map{ res -> res.getList() }
-//    }
+    private var type: String = ""
+    private var name: String = ""
+    private var page: Int = 0
 
-//    fun fetchRootList(): Observable<List<String?>> {
-//        return mDoceboDemoApi.root()
-//                .map{ res -> res.getList() }
-//    }
+    fun fetchCatalogItems(): Observable<List<Item>> {
+        return mDoceboDemoApi.catalog("", "all", 0)
+                .map{ res -> res.data.items }
+    }
 }

@@ -9,7 +9,7 @@ class FetchRootUseCase @Inject constructor(
 ) : BaseUseCase<FetchRootUseCase.Result>() {
 
     sealed class Result {
-        data class OnSuccess(val memes: List<String?>) : Result()
+        data class OnSuccess(val items: List<String?>) : Result()
         object OnError : Result()
     }
 
@@ -22,8 +22,8 @@ class FetchRootUseCase @Inject constructor(
 //                .track()
     }
 
-    private fun success(memes: List<String?>) {
-        liveData.value = Result.OnSuccess(memes)
+    private fun success(items: List<String?>) {
+        liveData.value = Result.OnSuccess(items)
     }
 
     private fun error(throwable: Throwable) {

@@ -30,7 +30,7 @@ class CatalogViewModel @Inject constructor(
     private fun onFetchRootResult(result: FetchRootUseCase.Result?) {
         when (result) {
             is FetchRootUseCase.Result.OnSuccess -> {
-                state.value = State.RootListLoaded(result.memes)
+                state.value = State.RootListLoaded(result.items)
                 state.value = State.ShowContent
             }
             is FetchRootUseCase.Result.OnError -> state.value = State.ShowError
