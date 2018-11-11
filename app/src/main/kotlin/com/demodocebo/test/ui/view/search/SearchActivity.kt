@@ -13,6 +13,7 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.demodocebo.test.ui.utils.getViewModel
+import com.demodocebo.test.ui.utils.manageTheme
 import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.utils.setupDefaultToolbar
 import com.demodocebo.test.ui.viewmodel.SearchViewModel
@@ -27,6 +28,7 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
     lateinit var mSearchViewModel: SearchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        manageTheme()
         super.onCreate(savedInstanceState)
 
         setupDefaultToolbar(toolbar, getString(R.string.search_title))

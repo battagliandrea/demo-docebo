@@ -32,6 +32,12 @@ fun AppCompatActivity.manageTheme() {
     this.setTheme(if (darkTheme) R.style.DarkTheme else R.style.LightTheme)
 }
 
+fun AppCompatActivity.manageFullScreenTheme() {
+    val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+    val darkTheme = prefs.getBoolean("dark_theme", false)
+    this.setTheme(if (darkTheme) R.style.FullScreenDarkTheme else R.style.FullScreenLightTheme)
+}
+
 fun AppCompatActivity.setupNavigationToolbar(toolbar: Toolbar, title: String, icon: Int = R.drawable.ic_arrow_back_white) {
     this.setSupportActionBar(toolbar)
     this.supportActionBar?.title = title

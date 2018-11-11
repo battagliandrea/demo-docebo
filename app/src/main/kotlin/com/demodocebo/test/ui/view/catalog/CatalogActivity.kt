@@ -48,6 +48,8 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
     private  var isLoading: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        this.manageTheme()
+
         super.onCreate(savedInstanceState)
 
         setupNavigationToolbar(toolbar, getString(R.string.catalog_title))

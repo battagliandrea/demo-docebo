@@ -8,6 +8,7 @@ import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.R
 import com.demodocebo.test.ui.utils.getViewModel
+import com.demodocebo.test.ui.utils.manageFullScreenTheme
 import com.demodocebo.test.ui.view.catalog.CatalogActivity
 import com.demodocebo.test.ui.viewmodel.SplashViewModel
 
@@ -19,6 +20,7 @@ class SplashActivity(override val layoutResourceId: Int = R.layout.activity_spla
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        manageFullScreenTheme()
         super.onCreate(savedInstanceState)
 
         setUpViewModelStateObservers()

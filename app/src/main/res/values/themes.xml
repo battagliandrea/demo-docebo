@@ -35,7 +35,7 @@
     </style>
 
     <style name="FullScreenDarkTheme" parent="DarkTheme">
-        <item name="android:windowBackground">@color/blue</item>
+        <item name="android:windowBackground">@color/blue_gray_dark</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
