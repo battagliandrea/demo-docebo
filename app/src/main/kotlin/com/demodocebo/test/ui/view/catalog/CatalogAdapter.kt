@@ -58,6 +58,8 @@ open class CatalogAdapter @Inject constructor() : RecyclerView.Adapter<CatalogAd
                         .apply(RequestOptions.centerCropTransform())
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(image)
+            } else {
+                Glide.with(context).clear(image)
             }
 
             tv_title.text = item.item_name

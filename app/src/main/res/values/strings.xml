@@ -11,6 +11,11 @@
 
     <!--CATALOG-->
     <string name="catalog_title">Catalogo</string>
+    <string name="catalog_empty_state">Empty!</string>
+    <plurals name="catalog_count">
+        <item quantity="one">Item</item>
+        <item quantity="other">Items</item>
+    </plurals>
 
     <!-- ERRORS-->
     <string name="error_undefined">Ops, something went wrong.</string>

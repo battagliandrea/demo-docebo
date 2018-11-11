@@ -1,5 +1,6 @@
 package com.demodocebo.test.domain.usecases
 
+import com.demodocebo.test.data.api.models.Catalog
 import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.data.repositories.CatalogRepository
 import com.demodocebo.test.domain.base.BaseUseCase
@@ -25,12 +26,12 @@ class GetCatalogItemsUseCase @Inject constructor(
     //          OUTPUT
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     sealed class Result {
-        data class OnSuccess(val items: List<Item>) : Result()
+        data class OnSuccess(val catalog: Catalog) : Result()
         object OnError : Result()
     }
 
-    private fun success(items: List<Item>) {
-        liveData.value = Result.OnSuccess(items)
+    private fun success(catalog: Catalog) {
+        liveData.value = Result.OnSuccess(catalog)
     }
 
     private fun error(throwable: Throwable) {

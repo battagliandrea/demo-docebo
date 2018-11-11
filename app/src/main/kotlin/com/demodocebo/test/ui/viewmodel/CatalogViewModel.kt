@@ -5,7 +5,6 @@ import android.arch.lifecycle.MediatorLiveData
 import android.arch.lifecycle.ViewModel
 import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.domain.usecases.GetCatalogItemsUseCase
-import com.demodocebo.test.domain.usecases.SaveSearchParamsUseCase
 import javax.inject.Inject
 
 class CatalogViewModel @Inject constructor(
@@ -27,8 +26,12 @@ class CatalogViewModel @Inject constructor(
     private fun onFetchRootResult(result: GetCatalogItemsUseCase.Result?) {
         when (result) {
             is GetCatalogItemsUseCase.Result.OnSuccess -> {
-                state.value = State.ListLoaded(result.items)
-                state.value = State.ShowContent
+                if(result.catalog.data.count >0){
+                    state.value = State.ListLoaded(result.catalog.data.items)
+                    state.value = State.CountLoaded(result.catalog.data.count)
+                } else {
+                    state.value = State.ShowEmptyStare
+                }
             }
             is GetCatalogItemsUseCase.Result.OnError -> state.value = State.ShowError
         }
@@ -36,8 +39,9 @@ class CatalogViewModel @Inject constructor(
 
     sealed class State {
         data class ListLoaded(val items: List<Item>) : State()
+        data class CountLoaded(val count: Int) : State()
         object ShowLoading : State()
-        object ShowContent : State()
+        object ShowEmptyStare : State()
         object ShowError : State()
     }
 

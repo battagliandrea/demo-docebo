@@ -1,6 +1,7 @@
 package com.demodocebo.test.data.repositories
 
 import com.demodocebo.test.data.api.DoceboDemoApiDatasource
+import com.demodocebo.test.data.api.models.Catalog
 import com.demodocebo.test.data.api.models.Item
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
@@ -26,8 +27,7 @@ class CatalogRepository @Inject constructor(doceboDemoApi: DoceboDemoApiDatasour
         }
     }
 
-    fun fetchCatalogItems(): Observable<List<Item>> {
+    fun fetchCatalogItems(): Observable<Catalog> {
         return mDoceboDemoApi.catalog(name.value ?: "", type.value ?: "all", page.value ?: 0)
-                .map{ res -> res.data.items }
     }
 }

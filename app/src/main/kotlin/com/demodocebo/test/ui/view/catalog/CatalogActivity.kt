@@ -7,8 +7,8 @@ import android.widget.Toast
 import com.demodocebo.test.ui.utils.observe
 import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.R
+import com.demodocebo.test.data.api.models.Item
 import com.demodocebo.test.ui.utils.getViewModel
-import com.demodocebo.test.ui.utils.setupDefaultToolbar
 import com.demodocebo.test.ui.utils.setupNavigationToolbar
 import com.demodocebo.test.ui.viewmodel.CatalogViewModel
 import kotlinx.android.synthetic.main.activity_catalog.*
@@ -39,13 +39,31 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
     }
 
     private fun onStateChanged(state: CatalogViewModel.State) = when (state) {
-        is CatalogViewModel.State.ListLoaded -> mCatalogAdapter.data = state.items
-        CatalogViewModel.State.ShowContent -> Toast.makeText(this, "CONTENT", Toast.LENGTH_SHORT).show()
-        CatalogViewModel.State.ShowLoading -> Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
-        CatalogViewModel.State.ShowError -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+        is CatalogViewModel.State.ListLoaded -> populateList(state.items)
+        is CatalogViewModel.State.CountLoaded -> populateCount(state.count)
+        CatalogViewModel.State.ShowLoading -> view_flipper.displayedChild = LOADER
+        CatalogViewModel.State.ShowEmptyStare -> view_flipper.displayedChild = EMPTY_STATE
+        CatalogViewModel.State.ShowError -> view_flipper.displayedChild = ERROR
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          UI METHOD
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    private fun populateList(items: List<Item>){
+        view_flipper.displayedChild = LIST
+        mCatalogAdapter.data = items
+    }
+
+    private fun populateCount(count: Int){
+        tv_count.text = "${count} ${resources.getQuantityString(R.plurals.catalog_count, count)}"
     }
 
     companion object {
+        private const val LIST : Int = 0
+        private const val LOADER : Int = 1
+        private const val EMPTY_STATE : Int = 2
+        private const val ERROR : Int = 3
+
         fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
     }
 
