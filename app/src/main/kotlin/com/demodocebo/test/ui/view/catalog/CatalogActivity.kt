@@ -16,6 +16,11 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 import javax.inject.Inject
 import android.nfc.tech.MifareUltralight.PAGE_SIZE
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+
+
 
 
 class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_catalog) : BaseActivity(){
@@ -105,4 +110,19 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
         fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.catalog_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.itemId
+        when (id) {
+            R.id.filters -> {
+                Toast.makeText(applicationContext, "FILTERS", Toast.LENGTH_LONG).show()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
 }

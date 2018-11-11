@@ -17,6 +17,9 @@
         <item quantity="other">Items</item>
     </plurals>
 
+    <!--FILTERS-->
+    <string name="menu_catalog_filters">Filters</string>
+
     <!-- ERRORS-->
     <string name="error_undefined">Ops, something went wrong.</string>
     <string name="error_network_no_network">Seems that you are offline. Please check your connection and try again</string>
