@@ -3,10 +3,13 @@ package com.demodocebo.test.ui.view.search
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import com.demodocebo.test.ui.view.base.BaseActivity
 import com.demodocebo.test.R
 import kotlinx.android.synthetic.main.activity_search.*
 import android.support.v7.app.AlertDialog
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.demodocebo.test.ui.utils.getViewModel
@@ -81,5 +84,33 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
             setCourseValue(arrayAdapter.getItem(which))
         }
         builder.show()
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          OPTION MENU
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id = item?.itemId
+        when (id) {
+            R.id.theme -> {
+                val pref = PreferenceManager.getDefaultSharedPreferences(this)
+                val darkTheme = pref.getBoolean("dark_theme", false)
+
+                val editor = PreferenceManager.getDefaultSharedPreferences(this).edit()
+                editor.putBoolean("dark_theme", !darkTheme)
+                editor.apply()
+
+                finish()
+                routeManager.launchSearch(this)
+                overridePendingTransition(0, 0)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

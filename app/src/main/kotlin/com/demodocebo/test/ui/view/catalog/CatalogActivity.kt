@@ -15,12 +15,14 @@ import kotlinx.android.synthetic.main.activity_catalog.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import javax.inject.Inject
 import android.nfc.tech.MifareUltralight.PAGE_SIZE
+import android.preference.PreferenceManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import android.support.design.widget.BottomSheetBehavior
 import android.view.View
+import com.demodocebo.test.ui.utils.manageTheme
 import kotlinx.android.synthetic.main.view_catalog_bottom_sheet.*
 
 

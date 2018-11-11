@@ -1,15 +1,41 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue_dark</item>
+        <item name="colorAccent">@color/blue_dark</item>
+        <item name="android:windowBackground">@color/white</item>
+
+        <item name="background_bottom_sheet">@color/gray_light</item>
+        <item name="edit_text_color">@color/black</item>
+        <item name="edit_text_hint_color">@color/blue_gray_dark</item>
+        <item name="text_view_item_color">@color/black</item>
+        <item name="button_background">@drawable/slt_rect_round_blue</item>
+        <item name="edit_text_background">@drawable/bkg_rect_round_gray_light</item>
     </style>
 
-    <style name="FullScreenDarkTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@color/colorPrimary</item>
+    <style name="FullScreenLightTheme" parent="LightTheme">
+        <item name="android:windowBackground">@color/blue</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/orange_dark</item>
+        <item name="colorAccent">@color/blue_gray_light</item>
+        <item name="android:windowBackground">@color/blue_gray_dark</item>
+
+        <item name="background_bottom_sheet">@color/blue_gray</item>
+        <item name="edit_text_color">@color/black</item>
+        <item name="edit_text_hint_color">@color/blue_gray_light</item>
+        <item name="text_view_item_color">@color/white</item>
+        <item name="button_background">@drawable/slt_rect_round_orange</item>
+        <item name="edit_text_background">@drawable/bkg_rect_round_gray_dark</item>
+
+    </style>
+
+    <style name="FullScreenDarkTheme" parent="DarkTheme">
+        <item name="android:windowBackground">@color/blue</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 

@@ -13,6 +13,13 @@
     <color name="blue_dark">#001442</color>
     <color name="blue_light">#48639d</color>
 
+    <item name="blue_gray" type="color">#546e7a</item>
+    <item name="blue_gray_light" type="color">#819ca9</item>
+    <item name="blue_gray_dark" type="color">#29434e</item>
+
+    <color name="orange">#e65100</color>
+    <color name="orange_dark">#ac1900</color>
+
     <color name="gray">#90a4ae</color>
     <color name="gray_dark">#62757f</color>
     <color name="gray_light">#c1d5e0</color>
@@ -21,5 +28,7 @@
 
 <color name="blue_pressed">#0d2c55</color>
 <color name="blue_disabled">#324c6e</color>
+<color name="orange_pressed">#cd4800</color>
+<color name="orange_disabled">#e67e45</color>
 </resources>
 

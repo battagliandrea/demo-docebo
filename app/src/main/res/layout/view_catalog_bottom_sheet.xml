@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/dimen_default"
-    android:background="#fff"
     android:orientation="vertical"
+    android:background="?attr/background_bottom_sheet"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
@@ -17,8 +17,9 @@
         android:layout_gravity="bottom"
         android:paddingTop="@dimen/dimen_default"
         android:paddingBottom="@dimen/dimen_default_quarter"
-        android:hint="@string/bottom_menu_sort"
-        android:textStyle="bold"/>
+        android:text="@string/bottom_menu_sort"
+        android:textStyle="bold"
+        android:textColor="?attr/text_view_item_color"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +32,8 @@
             android:layout_weight="1"
             android:paddingStart="@dimen/dimen_default_half"
             android:paddingEnd="@dimen/dimen_default_half"
-            android:hint="@string/bottom_menu_sort_asc"/>
+            android:text="@string/bottom_menu_sort_asc"
+            android:textColor="?attr/text_view_item_color"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/cb_az"
@@ -51,7 +53,8 @@
             android:layout_weight="1"
             android:paddingStart="@dimen/dimen_default_half"
             android:paddingEnd="@dimen/dimen_default_half"
-            android:hint="@string/bottom_menu_sort_dsc"/>
+            android:text="@string/bottom_menu_sort_dsc"
+            android:textColor="?attr/text_view_item_color"/>
 
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/cb_za"

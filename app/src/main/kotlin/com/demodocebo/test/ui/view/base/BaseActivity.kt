@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatDelegate
 import android.view.MenuItem
 import com.demodocebo.test.route.RouteManager
+import com.demodocebo.test.ui.utils.manageTheme
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -17,6 +18,9 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        this.manageTheme()
+
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         setContentView(layoutResourceId)

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.preference.PreferenceManager
 import android.view.View
 
 import android.support.v4.app.FragmentActivity
@@ -23,6 +24,12 @@ fun AppCompatActivity.setupDefaultToolbar(toolbar: Toolbar, title: String) {
     this.supportActionBar?.title = title
     this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
     this.supportActionBar?.setDisplayShowTitleEnabled(true)
+}
+
+fun AppCompatActivity.manageTheme() {
+    val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+    val darkTheme = prefs.getBoolean("dark_theme", false)
+    this.setTheme(if (darkTheme) R.style.DarkTheme else R.style.LightTheme)
 }
 
 fun AppCompatActivity.setupNavigationToolbar(toolbar: Toolbar, title: String, icon: Int = R.drawable.ic_arrow_back_white) {
