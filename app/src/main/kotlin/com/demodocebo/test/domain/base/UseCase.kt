@@ -2,11 +2,11 @@ package com.demodocebo.test.domain.base
 
 import android.arch.lifecycle.LiveData
 
-interface UseCase<T> {
+interface UseCase<Input, Output> {
 
-    fun getLiveData(): LiveData<T>
+    fun getLiveData(): LiveData<Output>
 
     fun cleanUp()
 
-    fun execute()
+    fun execute(params: Input)
 }

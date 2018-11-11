@@ -22,10 +22,6 @@ class SplashViewModel @Inject constructor(
 
     fun getState(): LiveData<State> = state
 
-    fun checkStart() {
-        checkStartUseCase.execute()
-    }
-
     private fun onCheckStartResult(result: CheckStartUseCase.Result?) {
         when (result) {
             is CheckStartUseCase.Result.OnSuccess -> {
@@ -38,5 +34,12 @@ class SplashViewModel @Inject constructor(
     sealed class State {
         object ShowHome : State()
         object ShowError : State()
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          USE CASE FUNCTION
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    fun checkStart() {
+        checkStartUseCase.execute(CheckStartUseCase.Params())
     }
 }

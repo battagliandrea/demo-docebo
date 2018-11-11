@@ -6,16 +6,16 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 
-abstract class BaseUseCase<T>(
+abstract class BaseUseCase<Input, Output>(
         private val compositeDisposable: CompositeDisposable = CompositeDisposable(),
-        protected val liveData: MutableLiveData<T> = MutableLiveData()
-) : UseCase<T> {
+        protected val liveData: MutableLiveData<Output> = MutableLiveData()
+) : UseCase<Input, Output> {
 
     protected fun Disposable.track() {
         compositeDisposable.add(this)
     }
 
-    override fun getLiveData(): LiveData<T> = liveData
+    override fun getLiveData(): LiveData<Output> = liveData
 
     override fun cleanUp() {
         compositeDisposable.clear()

@@ -1,21 +1,19 @@
 package com.demodocebo.test.domain.usecases
 
+import com.demodocebo.test.data.repositories.CatalogRepository
 import com.demodocebo.test.domain.base.BaseUseCase
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class CheckStartUseCase @Inject constructor() : BaseUseCase<CheckStartUseCase.Params, CheckStartUseCase.Result>() {
+class SaveSearchParamsUseCase @Inject constructor(
+        private val repository: CatalogRepository
+) : BaseUseCase<SaveSearchParamsUseCase.Params, SaveSearchParamsUseCase.Result>() {
 
-    class Params
-
-
+    data class Params(val name: String, val type: String)
 
     override fun execute(params: Params) {
-        Observable.just(true)
-                .delay(2000, TimeUnit.MILLISECONDS)
+        repository.saveSearchParames(params.name, params.type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(::success, ::error)
@@ -26,12 +24,12 @@ class CheckStartUseCase @Inject constructor() : BaseUseCase<CheckStartUseCase.Pa
     //          OUTPUT
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     sealed class Result {
-        object OnSuccess : Result()
+        data class OnSuccess(val value: Boolean) : Result()
         object OnError : Result()
     }
 
-    private fun success(status: Boolean) {
-        liveData.value = Result.OnSuccess
+    private fun success(value: Boolean) {
+        liveData.value = Result.OnSuccess(value)
     }
 
     private fun error(throwable: Throwable) {

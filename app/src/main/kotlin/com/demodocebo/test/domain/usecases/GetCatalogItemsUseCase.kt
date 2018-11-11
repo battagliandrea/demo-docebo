@@ -9,19 +9,24 @@ import javax.inject.Inject
 
 class GetCatalogItemsUseCase @Inject constructor(
         private val repository: CatalogRepository
-) : BaseUseCase<GetCatalogItemsUseCase.Result>() {
+) : BaseUseCase<GetCatalogItemsUseCase.Params, GetCatalogItemsUseCase.Result>() {
 
-    sealed class Result {
-        data class OnSuccess(val memes: List<Item>) : Result()
-        object OnError : Result()
-    }
+    class Params
 
-    override fun execute() {
+    override fun execute(params: Params) {
         repository.fetchCatalogItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(::success, ::error)
                 .track()
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //          OUTPUT
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    sealed class Result {
+        data class OnSuccess(val memes: List<Item>) : Result()
+        object OnError : Result()
     }
 
     private fun success(items: List<Item>) {

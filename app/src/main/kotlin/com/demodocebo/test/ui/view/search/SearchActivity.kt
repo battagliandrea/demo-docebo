@@ -19,12 +19,14 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
         fun getCallingIntent(context: Context) = Intent(context, SearchActivity::class.java)
     }
 
+    lateinit var mSearchViewModel: SearchViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initView()
         setUpViewModelStateObservers()
-        //getViewModel<SearchViewModel>(viewModelFactory).fetchRoot()
+        mSearchViewModel = getViewModel<SearchViewModel>(viewModelFactory)
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +53,7 @@ class SearchActivity(override val layoutResourceId: Int = R.layout.activity_sear
         et_course.setText(resources.getStringArray(R.array.courses)[0])
         et_course.setOnClickListener { openCourseDialog() }
 
-        btn_search.setOnClickListener { getViewModel<SearchViewModel>(viewModelFactory).fetchCatalogItems() }
+        btn_search.setOnClickListener {  mSearchViewModel.saveParams(et_name.text.toString(), et_course.text.toString()) }
     }
 
     private fun setCourseValue(value: String?){

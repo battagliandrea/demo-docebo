@@ -15,20 +15,20 @@ class CatalogActivity(override val layoutResourceId: Int = R.layout.activity_cat
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setUpViewModelStateObservers()
-        getViewModel<CatalogViewModel>(viewModelFactory).fetchRoot()
+        //setUpViewModelStateObservers()
+        //getViewModel<CatalogViewModel>(viewModelFactory).fetchRoot()
     }
 
-    private fun setUpViewModelStateObservers() {
-        observe(getViewModel<CatalogViewModel>(viewModelFactory).getState()) { onStateChanged(it) }
-    }
-
-    private fun onStateChanged(state: CatalogViewModel.State) = when (state) {
-        is CatalogViewModel.State.RootListLoaded -> Toast.makeText(this, "LOADED", Toast.LENGTH_SHORT).show()
-        CatalogViewModel.State.ShowLoading -> Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
-        CatalogViewModel.State.ShowContent -> Toast.makeText(this, "CONTENT", Toast.LENGTH_SHORT).show()
-        CatalogViewModel.State.ShowError -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-    }
+//    private fun setUpViewModelStateObservers() {
+//        observe(getViewModel<CatalogViewModel>(viewModelFactory).getState()) { onStateChanged(it) }
+//    }
+//
+//    private fun onStateChanged(state: CatalogViewModel.State) = when (state) {
+//        is CatalogViewModel.State.RootListLoaded -> Toast.makeText(this, "LOADED", Toast.LENGTH_SHORT).show()
+//        CatalogViewModel.State.ShowLoading -> Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
+//        CatalogViewModel.State.ShowContent -> Toast.makeText(this, "CONTENT", Toast.LENGTH_SHORT).show()
+//        CatalogViewModel.State.ShowError -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+//    }
 
     companion object {
         fun getCallingIntent(context: Context) = Intent(context, CatalogActivity::class.java)
